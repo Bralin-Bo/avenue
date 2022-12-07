@@ -53,9 +53,11 @@ export default {
 <style lang="sass">
 .city-map
    display: flex
+   margin: 0 auto
    margin-bottom: 100px
    background-color: #f8f8f8
    transition: .4s
+   max-width: 1320px
    &__map
       width: 70%
       position: relative

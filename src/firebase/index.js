@@ -6,12 +6,12 @@ import 'firebase/database'
 
 const app = initializeApp(
    {
-      apiKey: "AIzaSyDAPqALfM3xjg7II0tjg7GL6s73mKXRxEs",
-      authDomain: "vue-crm-e3928.firebaseapp.com",
-      databaseURL: "https://vue-crm-e3928.firebaseio.com",
-      projectId: "vue-crm-e3928",
-      storageBucket: "vue-crm-e3928.appspot.com",
-      messagingSenderId: "251307374581"
+      apiKey: "AIzaSyAl6UosblhsqRMlJGwBFkZtBKVLfsJfXBM",
+      authDomain: "test-c4e9e.firebaseapp.com",
+      projectId: "test-c4e9e",
+      storageBucket: "test-c4e9e.appspot.com",
+      messagingSenderId: "815297249103",
+      appId: "1:815297249103:web:0881ce4b2d90b059e80f3a"
    }
 );
 const db = initializeFirestore(app, {

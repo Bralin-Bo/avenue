@@ -22,6 +22,7 @@ export default {
 
 <style lang="sass">
 .item
+  z-index: 0
   &:hover
     cursor: pointer
   &__price
@@ -42,17 +43,17 @@ export default {
     height: 100%
     object-fit: cover
   &__description
-    visibility: hidden
+    opacity: 0
     position: absolute
-    z-index: 2
+    z-index: 999
     cursor: pointer
-    bottom: -100px
+    bottom: 0px
     background-color: #f8f8f8
     box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.14)
     width: 100%
     height: 100px
     text-align: center
-    transition: .2s
+    transition: all .4s
   &__name
     margin-top: 10px
     font-size: 13px

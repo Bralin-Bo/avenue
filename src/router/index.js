@@ -19,15 +19,34 @@ const routes = [
       }
    },
    {
-      path: '/product', name: 'product', component: function () {
+      path: '/product/:id', name: 'product', component: function () {
          return import('../components/Product/Product.vue')
+      }
+   },
+   {
+      path: '/create', name: 'create', component: function () {
+         return import('../components/AddCloth/AddCloth.vue')
+      }
+   },
+   {
+      path: '/products', name: 'products', component: function () {
+         return import('../components/ProductList/Main.vue')
+      }
+   },
+   {
+      path: '/cart', name: 'cart', component: function () {
+         return import('../components/Cart/Cart.vue')
       }
    },
 ]
 
 const router = createRouter({
    history: createWebHistory(),
-   routes
+   routes,
+   scrollBehavior(to, from, savedPosition) {
+      // always scroll to top
+      return { top: 0, behavior: 'smooth' }
+   }
 })
 
 export default router

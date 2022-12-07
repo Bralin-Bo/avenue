@@ -2,23 +2,17 @@
    <div class="product-content container">
       <div class="product">
          <div class="product__img"><img
-               src="https://pyxis.nymag.com/v1/imgs/05d/b15/f4c61238a24a34610ae3a41dede1df90a4-Gildan-black-tshirt.rsquare.w600.jpg"
+               :src= img
                alt=""></div>
          <div class="product__info">
-            <h2 class="product__title">Ave classic sweatshirt</h2>
-            <p class="product__price"><span>£107</span> £89.99</p>
+            <h2 class="product__title">{{name}}</h2>
+            <p class="product__price"><span>{{oldprice}}</span> {{price}}</p>
             <div class="product__subtitle">
                <p>Availability: <span>In stock</span></p>
-               <p>Product Code: <span>#499577</span></p>
+               <p>Product Code: <span>#{{id}}</span></p>
                <p>Tags: <span class="blue">Classic, Casual, V-neck, Loose</span></p>
             </div>
-            <p class="product__body">Donec sem lorem laoreet tempor un risus vitae, rutrum sodales nibh suspendisse est
-               congue metus nunc, id viverra elit loreti rhoncus quis consecteur es. Donec pulvinar tempor lorem a
-               pretium justo interdum. <br /> <br />
-               • Elasticated cuffs<br />
-               • Casual fit<br />
-               • 100% Cotton<br />
-               • Free shipping with 4 days delivery<br />
+            <p class="product__body">{{body}}
             </p>
             <div class="product__settings">
                <div class="product-select">
@@ -34,7 +28,8 @@
                   <select name="" id="">Select Colour</select>
                </div>
             </div>
-            <button class="btn btn-product">Add to Cart</button>
+            <button @click="()=>addToCart({id: id, name: name, price: price, img: img})" 
+               class="btn btn-product" :class="{'add-btn':isInCart =='Added'}">{{isInCart}}</button>
          </div>
       </div>
       <div class="product-description">
@@ -46,7 +41,42 @@
 
 <script>
 export default {
+   props:{
+      name:{},
+      img:{},
+      price:{},
+      body:{},
+      id:{}
+   },
+   
+}
+</script>
+<script setup>
+import { useClothesStore } from '../../stores/clothes';
+import { ref } from 'vue';
+import { onBeforeRouteUpdate } from 'vue-router';
+const store = useClothesStore()
+const isInCart = ref('Add to Cart')
 
+onBeforeRouteUpdate((to, from)=>{
+   if(!isAdded(to.params.id))
+      isInCart.value = 'Add to Cart'
+})
+function isAdded(id){
+   let added = false
+   store.cart.forEach(e => {
+      if(e.id == id) {
+         isInCart.value = 'Added'
+         added = true
+      }
+   });
+   return added
+}
+function addToCart(product){
+   if(isAdded(product.id)) return isInCart.value = 'Added'
+   store.cart.push(product)
+   localStorage.setItem("cart", JSON.stringify(store.cart))
+   isInCart.value = 'Added'
 }
 </script>
 
@@ -145,4 +175,10 @@ export default {
       font-weight: 700
       text-transform: uppercase
       color: #727272
+.add-btn
+   background-color: #02a112
+   border-color: #00d115
+   &:hover
+      background-color: #014708
+      border-color: #014708
 </style>

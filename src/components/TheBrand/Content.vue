@@ -1,8 +1,8 @@
 <template>
   <div class="container brand">
       <div class="">
-         <img src="../../img/brand_1.png" alt="" style="margin-bottom:40px;">
-         <img src="../../img/brand_2.png" alt="">
+         <img src="../../img/brand_1.png" v-motion-slide-visible-left style="margin-bottom:40px;">
+         <img src="../../img/brand_2.png" v-motion-slide-visible-left alt="">
          <div class="brand-info">
             <h3 class="brand-info__title">our values, vision and strategy</h3>
             <p class="brand-info__subtitle">The above image would be a great place for an advertising video</p>
@@ -15,16 +15,16 @@
             <p class="brand-info__subtitle">established in 2013, avenue fashion Sed dictum elit vel sapien luctus eras</p>
             <p class="brand-info__text">Praesent feugiat malesuada tristique maecenas rhoncus diam eget quam vestibulim consectetur, id condimentum leo porttitor. Cum sociis natoque penatibus eta magnis disut parturient montes, nascetur ridiculus mus. Donec sem lorem laoreet tempor un risus vitae, rutrum sodales nibh suspendisse congue metus nunc, id viverra elit loreti rhoncus quis consecteur es. Donec pulvinar tempor lorem a pretium justo interdum.</p>
          </div>
-         <img src="../../img/brand_3.png" alt="">
+         <img src="../../img/brand_3.png" v-motion-slide-visible-right>
          <div class="brand-info">
             <h3 class="brand-info__title">Ethical trading</h3>
             <p class="brand-info__subtitle">we oversee the working conditions of the people in the supply chain</p>
             <p class="brand-info__text">Nullam dapibus consectetur neque, faucibus porttitor purus iaculis sed. Aenean eras dapibus augue, eget dignissim dui maecenas et rhoncus mim, vel semper arcu loremPellentesque congue justo esteir pellentesque aliquet massa eget posuere tincidunt. Cras viverra ullamcorper nunc accumsan hendrerit. A link fa-long-arrow-right</p>
          </div>
          <div class="brand__brands">
-            <img src="../../img/brand_4.png" alt="">
-            <img src="../../img/brand_5.png" alt="">
-            <img src="../../img/brand_6.png" alt="">
+            <img src="../../img/brand_4.png" v-motion-pop-visible>
+            <img src="../../img/brand_5.png" v-motion-pop-visible>
+            <img src="../../img/brand_6.png" v-motion-pop-visible>
          </div>
       </div>
   </div>

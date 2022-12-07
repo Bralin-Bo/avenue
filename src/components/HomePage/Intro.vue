@@ -8,15 +8,23 @@
         <h1 class="title__text">E</h1>
       </div>
       <div class="intro-bot">
-        <button class="btn">shop men's collection</button>
+        <router-link to="/products" @click="defineCurrent('Unisex', 'casual & formal', '')" class="btn btn-intro">shop new collections</router-link>
       </div>
-      <div class="bgman">
+      <div class="bgman" v-motion :initial="{x:-100, opacity:0}" :enter="{x:0, opacity:1, transition: {delay: 500, duration: 1000},}">
           <img src="../../img/bgimg.png" alt="">
       </div>
     </div>
   </div>
 </template>
-
+<script setup>
+import { useClothesStore } from '../../stores/clothes';
+const store = useClothesStore()
+function defineCurrent(gender, style, type){
+  store.current.gender = gender
+  store.current.style = style
+  store.current.type = type
+}
+</script>
 <style>
 .intro {
   height: 900px;
@@ -52,26 +60,10 @@
   margin-bottom: 120px;
   margin-right: 160px;
 }
-.btn{
-  padding: 23px 33px;
-  background-color: transparent;
-  border: 2px solid #737373;
-  text-transform: uppercase;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0.2em;
-  color: #454647;
-  transition: .4s;
-}
-.btn:hover{
-  background-color: #00c8c8;
-  border-color: #00c8c8;
-  color: #f8f8f8;
-  cursor: pointer;
-}
-.btn:active{
-  background-color: #009797;
-  border-color: #009797;
+
+.btn-intro{
+  padding-top: 30px!important;
+  text-decoration: none;
 }
 .bgman{
   position: absolute;
@@ -88,5 +80,6 @@
 
 <script>
 import NavBar from '../Header/Nav-bar.vue';
-export default { components: { NavBar } };
+export default { 
+  components: { NavBar } };
 </script>
